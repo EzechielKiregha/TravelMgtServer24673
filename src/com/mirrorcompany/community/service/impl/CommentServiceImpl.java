@@ -16,7 +16,7 @@ public class CommentServiceImpl extends UnicastRemoteObject implements CommentSe
 
     private CommentDao commentDao;
 
-    protected CommentServiceImpl() throws RemoteException {
+    public CommentServiceImpl() throws RemoteException {
         commentDao = new CommentDao();
     }
 

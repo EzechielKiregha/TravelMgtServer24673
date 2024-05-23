@@ -11,7 +11,7 @@ public class NotificationServiceImpl extends UnicastRemoteObject implements Noti
 
     private NotificationDao notificationDao;
 
-    protected NotificationServiceImpl() throws RemoteException {
+    public NotificationServiceImpl() throws RemoteException {
         notificationDao = new NotificationDao();
     }
 

@@ -13,4 +13,10 @@ public interface UserService extends Remote {
     boolean deleteUser(User user) throws RemoteException;
     boolean verifyUserCredentials(User user) throws RemoteException;
     List<User> findAllUsers() throws RemoteException;
+    boolean registerUser(User user) throws RemoteException;
+    boolean verifyUser(Long userId, String code) throws RemoteException;
+    boolean loginUser(String email, String password) throws RemoteException;
+    String generateVerificationCode() throws RemoteException;
+    boolean isEmailDuplicated(String email) throws RemoteException;
+    boolean isUsernameDuplicated(String username) throws RemoteException;
 }

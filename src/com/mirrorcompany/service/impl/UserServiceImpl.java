@@ -51,6 +51,41 @@ public class UserServiceImpl extends UnicastRemoteObject implements UserService 
             System.out.println("False");
             return false; // Credentials are invalid
         }
-        
+    }
+    
+    @Override
+    public boolean registerUser(User user) {
+        if (userDao.isEmailDuplicated(user.getEmail()) || userDao.isUsernameDuplicated(user.getUsername())) {
+            return false;
+        }
+        user.setVerificationCode(generateVerificationCode());
+        user.setStatus("Pending");
+        // Send verification email using the code (use your email service here)
+        return userDao.registerUser(user);
+    }
+
+    @Override
+    public boolean verifyUser(Long userId, String code) {
+        return userDao.verifyUser(userId, code);
+    }
+
+    @Override
+    public boolean loginUser(String email, String password) {
+        return userDao.loginUser(email, password);
+    }
+
+    @Override
+    public String generateVerificationCode() {
+        return userDao.generateVerificationCode();
+    }
+
+    @Override
+    public boolean isEmailDuplicated(String email) {
+        return userDao.isEmailDuplicated(email);
+    }
+
+    @Override
+    public boolean isUsernameDuplicated(String username) {
+        return userDao.isUsernameDuplicated(username);
     }
 }

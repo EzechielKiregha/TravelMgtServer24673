@@ -11,7 +11,7 @@ public class MessageServiceImpl extends UnicastRemoteObject implements MessageSe
 
     private MessageDao messageDao;
 
-    protected MessageServiceImpl() throws RemoteException {
+    public MessageServiceImpl() throws RemoteException {
         messageDao = new MessageDao();
     }
 

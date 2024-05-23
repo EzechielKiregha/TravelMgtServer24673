@@ -60,5 +60,12 @@ Contributor(s):
     <mapping class="com.mirrorcompany.flightbooking.model.AirlineUsers"/>
     <mapping class="com.mirrorcompany.flightbooking.model.Flight"/>
     <mapping class="com.mirrorcompany.flightbooking.model.Flight1"/>
+    <mapping class="com.mirrorcompany.community.model.Chat"/>
+    <mapping class="com.mirrorcompany.community.model.Comment"/>
+    <mapping class="com.mirrorcompany.community.model.Group"/>
+    <mapping class="com.mirrorcompany.community.model.ItineraryChange"/>
+    <mapping class="com.mirrorcompany.community.model.Message"/>
+    <mapping class="com.mirrorcompany.community.model.Notification"/>
+    <mapping class="com.mirrorcompany.community.model.Update"/>
   </session-factory>
 </hibernate-configuration>

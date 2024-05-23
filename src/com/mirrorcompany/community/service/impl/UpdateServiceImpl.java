@@ -11,7 +11,7 @@ public class UpdateServiceImpl extends UnicastRemoteObject implements UpdateServ
 
     private UpdateDao updateDao;
 
-    protected UpdateServiceImpl() throws RemoteException {
+    public UpdateServiceImpl() throws RemoteException {
         updateDao = new UpdateDao();
     }
 

@@ -12,7 +12,7 @@ public class ChatServiceImpl extends UnicastRemoteObject implements ChatService 
 
     private ChatDao chatDao;
 
-    protected ChatServiceImpl() throws RemoteException {
+    public ChatServiceImpl() throws RemoteException {
         super();
         chatDao = new ChatDao();
     }

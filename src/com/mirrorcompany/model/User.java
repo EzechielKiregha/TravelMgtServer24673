@@ -1,12 +1,8 @@
 package com.mirrorcompany.model;
 
-/**
- *
- * @author ekire
- */
 import java.util.ArrayList;
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -34,7 +30,7 @@ public class User implements java.io.Serializable {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Expense> expenses;
-    
+
     @ManyToMany
     @JoinTable(
         name = "user_recommendations",
@@ -45,24 +41,33 @@ public class User implements java.io.Serializable {
 
     private String profilePicture;
     private String bio;
+    
     @ElementCollection
     private List<String> interests = new ArrayList<>();
+    
+    @Column(name = "verification_code")
+    private String verificationCode;
 
-    // Constructors, getters, and setters
+    @Column(name = "status")
+    private String status;
 
     public User() {
     }
 
-    public User(String username, String password, String email, String phone, List<Itinerary> itineraries, List<Expense> expenses) {
+    public User(Long userId, String username, String password, String email, String phone, List<Itinerary> itineraries, List<Expense> expenses, List<Recommendation> recommendations, String profilePicture, String bio, String verificationCode, String status) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.itineraries = itineraries;
         this.expenses = expenses;
+        this.recommendations = recommendations;
+        this.profilePicture = profilePicture;
+        this.bio = bio;
+        this.verificationCode = verificationCode;
+        this.status = status;
     }
-
-    // Getters and setters
 
     public Long getUserId() {
         return userId;
@@ -103,7 +108,6 @@ public class User implements java.io.Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
 
     public List<Itinerary> getItineraries() {
         return itineraries;
@@ -119,5 +123,53 @@ public class User implements java.io.Serializable {
 
     public void setExpenses(List<Expense> expenses) {
         this.expenses = expenses;
+    }
+
+    public List<Recommendation> getRecommendations() {
+        return recommendations;
+    }
+
+    public void setRecommendations(List<Recommendation> recommendations) {
+        this.recommendations = recommendations;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public List<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(List<String> interests) {
+        this.interests = interests;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

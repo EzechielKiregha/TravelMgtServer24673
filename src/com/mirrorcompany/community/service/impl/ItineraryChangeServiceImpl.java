@@ -11,7 +11,7 @@ public class ItineraryChangeServiceImpl extends UnicastRemoteObject implements I
 
     private ItineraryChangeDao itineraryChangeDao;
 
-    protected ItineraryChangeServiceImpl() throws RemoteException {
+    public ItineraryChangeServiceImpl() throws RemoteException {
         itineraryChangeDao = new ItineraryChangeDao();
     }
 

@@ -25,7 +25,7 @@ public class AirlinePassenger implements Serializable{
     @Column(name = "Phone",unique = true)
     private String phone;
     private String mail;
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "passenger")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "passenger")
     private AirlineBooking booking;
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "FlightNo")
