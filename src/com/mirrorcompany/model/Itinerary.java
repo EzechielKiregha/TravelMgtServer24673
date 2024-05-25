@@ -36,8 +36,6 @@ public class Itinerary implements java.io.Serializable {
     @OneToMany(mappedBy = "itinerary", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TripSegment> tripSegments;
 
-    // Constructors, getters, and setters
-
     public Itinerary() {
     }
 
