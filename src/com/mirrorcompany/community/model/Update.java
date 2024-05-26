@@ -6,6 +6,7 @@
 package com.mirrorcompany.community.model;
 
 import com.mirrorcompany.model.User;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ import javax.persistence.OneToMany;
 import javax.xml.stream.events.Comment;
 
 @Entity
-public class Update {
+public class Update implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     

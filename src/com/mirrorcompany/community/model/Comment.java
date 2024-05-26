@@ -1,7 +1,8 @@
 package com.mirrorcompany.community.model;
 
 import com.mirrorcompany.model.User;
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,14 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Comment {
+public class Comment implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
     private String content;
     @ManyToOne
     private User postedBy;
-    private Timestamp postedAt;
+    private Date postedAt;
     @ManyToOne
     @JoinColumn(name = "update_id")
     private Update update;
@@ -25,7 +27,7 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Long commentId, String content, User postedBy, Timestamp postedAt, Update update) {
+    public Comment(Long commentId, String content, User postedBy, Date postedAt, Update update) {
         this.commentId = commentId;
         this.content = content;
         this.postedBy = postedBy;
@@ -57,11 +59,11 @@ public class Comment {
         this.postedBy = postedBy;
     }
 
-    public Timestamp getPostedAt() {
+    public Date getPostedAt() {
         return postedAt;
     }
 
-    public void setPostedAt(Timestamp postedAt) {
+    public void setPostedAt(Date postedAt) {
         this.postedAt = postedAt;
     }
 

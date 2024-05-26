@@ -6,6 +6,7 @@
 package com.mirrorcompany.community.model;
 
 import com.mirrorcompany.model.User;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -16,7 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Group {
+public class Group implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long groupId;

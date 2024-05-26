@@ -10,11 +10,10 @@ import java.util.List;
 
 public class ExpenseServiceImpl extends UnicastRemoteObject implements ExpenseService {
     private static final long serialVersionUID = 1L;
-    private ExpenseDao expenseDao;
+    private ExpenseDao expenseDao = new ExpenseDao();
 
     public ExpenseServiceImpl() throws RemoteException {
-        super();
-        expenseDao = new ExpenseDao();
+        
     }
 
     @Override

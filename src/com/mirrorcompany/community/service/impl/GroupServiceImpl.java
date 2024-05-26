@@ -14,11 +14,10 @@ import java.util.List;
 
 public class GroupServiceImpl extends UnicastRemoteObject implements GroupService {
     private static final long serialVersionUID = 1L;
-    private GroupDao groupDao;
+    private GroupDao groupDao = new GroupDao();
 
     public GroupServiceImpl() throws RemoteException {
-        super();
-        groupDao = new GroupDao();
+        
     }
 
     @Override

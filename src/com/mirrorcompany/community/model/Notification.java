@@ -6,6 +6,8 @@
 package com.mirrorcompany.community.model;
 
 import com.mirrorcompany.model.User;
+import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Notification {
+public class Notification implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long notificationId;
@@ -25,12 +28,12 @@ public class Notification {
     private String type;
     private String content;
     private boolean isRead;
-    private Timestamp timestamp;
+    private Date timestamp;
 
     public Notification() {
     }
 
-    public Notification(Long notificationId, User recipient, String type, String content, boolean isRead, Timestamp timestamp) {
+    public Notification(Long notificationId, User recipient, String type, String content, boolean isRead, Date timestamp) {
         this.notificationId = notificationId;
         this.recipient = recipient;
         this.type = type;
@@ -79,11 +82,11 @@ public class Notification {
         this.isRead = isRead;
     }
 
-    public Timestamp getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 

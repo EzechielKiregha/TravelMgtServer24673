@@ -10,11 +10,9 @@ import java.util.List;
 
 public class ChatServiceImpl extends UnicastRemoteObject implements ChatService {
 
-    private ChatDao chatDao;
+    private ChatDao chatDao = new ChatDao();
 
     public ChatServiceImpl() throws RemoteException {
-        super();
-        chatDao = new ChatDao();
     }
 
     @Override

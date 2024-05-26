@@ -10,11 +10,10 @@ import java.util.List;
 
 public class TripSegmentServiceImpl extends UnicastRemoteObject implements TripSegmentService {
     private static final long serialVersionUID = 1L;
-    private TripSegmentDao tripSegmentDao;
+    private TripSegmentDao tripSegmentDao = new TripSegmentDao();
 
     public TripSegmentServiceImpl() throws RemoteException {
-        super();
-        tripSegmentDao = new TripSegmentDao();
+        
     }
 
     @Override

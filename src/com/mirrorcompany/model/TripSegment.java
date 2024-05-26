@@ -1,15 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mirrorcompany.model;
 
 /**
  *
  * @author ekire
  */
+import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "trip_segments")
-public class TripSegment implements java.io.Serializable {
+public class TripSegment implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +28,10 @@ public class TripSegment implements java.io.Serializable {
     private String destination;
 
     @Column(name = "start_date", nullable = false)
-    private LocalDate startDate;
+    private Date startDate;
 
     @Column(name = "end_date", nullable = false)
-    private LocalDate endDate;
+    private Date endDate;
 
     @Column(name = "accommodation")
     private String accommodation;
@@ -43,7 +51,7 @@ public class TripSegment implements java.io.Serializable {
     public TripSegment() {
     }
 
-    public TripSegment(String destination, LocalDate startDate, LocalDate endDate, String accommodation, String transportation, String activities, Itinerary itinerary) {
+    public TripSegment(String destination, Date startDate, Date endDate, String accommodation, String transportation, String activities, Itinerary itinerary) {
         this.destination = destination;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -73,19 +81,19 @@ public class TripSegment implements java.io.Serializable {
         this.destination = destination;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

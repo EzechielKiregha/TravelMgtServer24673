@@ -6,6 +6,8 @@
 package com.mirrorcompany.community.model;
 
 import com.mirrorcompany.model.User;
+import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +16,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Message {
+public class Message implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageId;
     private String content;
     @ManyToOne
     private User sentBy;
-    private Timestamp sentAt;
+    private Date sentAt;
     @ManyToOne
     private Chat chat;
 
     public Message() {
     }
 
-    public Message(Long messageId, String content, User sentBy, Timestamp sentAt, Chat chat) {
+    public Message(Long messageId, String content, User sentBy, Date sentAt, Chat chat) {
         this.messageId = messageId;
         this.content = content;
         this.sentBy = sentBy;
@@ -60,11 +63,11 @@ public class Message {
         this.sentBy = sentBy;
     }
 
-    public Timestamp getSentAt() {
+    public Date getSentAt() {
         return sentAt;
     }
 
-    public void setSentAt(Timestamp sentAt) {
+    public void setSentAt(Date sentAt) {
         this.sentAt = sentAt;
     }
 

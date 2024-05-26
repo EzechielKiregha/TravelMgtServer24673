@@ -14,7 +14,8 @@ import javax.persistence.*;
  * @author DRG
  */
 @Entity
-public class AirlinePassenger implements Serializable{
+public class AirlinePassenger implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
@@ -25,7 +26,7 @@ public class AirlinePassenger implements Serializable{
     @Column(name = "Phone",unique = true)
     private String phone;
     private String mail;
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "passenger")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "passenger")
     private AirlineBooking booking;
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "FlightNo")

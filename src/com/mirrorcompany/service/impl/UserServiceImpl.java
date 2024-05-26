@@ -10,11 +10,10 @@ import java.util.List;
 
 public class UserServiceImpl extends UnicastRemoteObject implements UserService {
     private static final long serialVersionUID = 1L;
-    private UserDao userDao;
+    private UserDao userDao = new UserDao();
 
     public UserServiceImpl() throws RemoteException {
-        super();
-        userDao = new UserDao();
+        
     }
 
     @Override
@@ -23,8 +22,8 @@ public class UserServiceImpl extends UnicastRemoteObject implements UserService 
     }
 
     @Override
-    public User findUserByEmail(User user) throws RemoteException {
-        return userDao.findUserByEmail(user);
+    public User findUserByEmail(String email) throws RemoteException {
+        return userDao.findUserByEmail(email);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class UserServiceImpl extends UnicastRemoteObject implements UserService 
     }
     @Override
     public boolean verifyUserCredentials(User user) throws RemoteException {
-        User storedUser = userDao.findUserByEmail(user);
+        User storedUser = userDao.findUserByEmail(user.getEmail());
         if (storedUser != null && storedUser.getPassword().equals(user.getPassword())) {
             System.out.println("True");
             return true; // Credentials are valid

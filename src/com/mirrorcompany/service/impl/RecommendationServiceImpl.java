@@ -11,11 +11,11 @@ import java.util.List;
 
 public class RecommendationServiceImpl extends UnicastRemoteObject implements RecommendationService {
     private static final long serialVersionUID = 1L;
-    private RecommendationDao recommendationDao;
+    private RecommendationDao recommendationDao = new RecommendationDao();
 
     public RecommendationServiceImpl() throws RemoteException {
-        super();
-        recommendationDao = new RecommendationDao();
+        
+        
     }
 
     @Override

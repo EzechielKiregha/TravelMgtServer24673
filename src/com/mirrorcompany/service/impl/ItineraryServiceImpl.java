@@ -10,11 +10,11 @@ import java.util.List;
 
 public class ItineraryServiceImpl extends UnicastRemoteObject implements ItineraryService {
     private static final long serialVersionUID = 1L;
-    private ItineraryDao itineraryDao;
+    private ItineraryDao itineraryDao = new ItineraryDao();
 
     public ItineraryServiceImpl() throws RemoteException {
-        super();
-        itineraryDao = new ItineraryDao();
+        
+        
     }
 
     @Override
